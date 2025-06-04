@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+// next.config.js
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  // Opcional: Añade una barra al final de las rutas, útil para servidores como Nginx
+  trailingSlash: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;
