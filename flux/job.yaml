@@ -1,10 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: website-update-job-8e0935c
+  name: website-update-job-REPLACEME
   namespace: website
 spec:
-  ttlSecondsAfterFinished: 40
+  ttlSecondsAfterFinished: 600
+  backoffLimit: 4
   template:
     spec:
       restartPolicy: OnFailure
@@ -30,11 +31,12 @@ spec:
               rm -rf /mnt/website/*
               cd /repo
               npm install
-              npx expo build
+              npx next build
               cp -r out/* /mnt/website
               chown -R 101:101 /mnt/website
-              kubectl delete pod -l app=nginx -n website
               echo "La pagina se actualizo correctamente"
+              # Reinicia el pod de nginx para recargar archivos (requiere kubectl y permisos RBAC)
+              # apk add --no-cache kubectl && kubectl delete pod -l app=nginx -n website || true
           volumeMounts:
             - name: website-volume
               mountPath: /mnt/website
@@ -46,4 +48,3 @@ spec:
             claimName: nginx-pvc
         - name: repo-volume
           emptyDir: {}
-  backoffLimit: 5
