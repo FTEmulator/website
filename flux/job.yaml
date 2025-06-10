@@ -4,7 +4,7 @@ metadata:
   name: website-update-job-bf62016
   namespace: website
 spec:
-  ttlSecondsAfterFinished: 36000
+  ttlSecondsAfterFinished: 40
   template:
     spec:
       restartPolicy: OnFailure
@@ -31,7 +31,6 @@ spec:
               npx expo build
               cp -r out/* /mnt/website
               echo "La pagina se actualizo correctamente"
-              kubectl delete pod -l app=nginx -n website
           volumeMounts:
             - name: website-volume
               mountPath: /mnt/website
