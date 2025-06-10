@@ -1,0 +1,25 @@
+name: Update Job Name for FluxCD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get commit hash
+        id: vars
+        run: echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Replace job name in job.yaml
+        run: |
+          sed -i "s/website-update-job-.*/website-update-job-${COMMIT_HASH}/" website/flux/job.yaml
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add website/flux/job.yaml
+          git commit -m "Update Job name for commit $COMMIT_HASH" || echo "No changes to commit"
+          git push

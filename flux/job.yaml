@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: website-update-job-$(SOURCE_COMMIT)
+  name: website-update-job-REPLACEME
   namespace: website
 spec:
   ttlSecondsAfterFinished: 40
