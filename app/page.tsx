@@ -15,7 +15,7 @@ export default function Home() {
         />
         <ol>
           <li>
-            Test2
+            Test3
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
