@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: website-update-job-846e7d0
+  name: website-update-job-a3093f5
   namespace: website
 spec:
   ttlSecondsAfterFinished: 40
