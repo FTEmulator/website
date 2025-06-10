@@ -15,7 +15,7 @@ spec:
           args:
             - |
               rm -rf /repo/*
-              git clone --depth 1 ${var.git_repo} /repo
+              git clone --depth 1 https://github.com/FTEmulator/website /repo
           volumeMounts:
             - name: repo-volume
               mountPath: /repo
