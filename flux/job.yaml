@@ -4,7 +4,7 @@ metadata:
   name: website-update-job-1552699
   namespace: website
 spec:
-  ttlSecondsAfterFinished: 4600
+  ttlSecondsAfterFinished: 36000
   template:
     spec:
       restartPolicy: OnFailure
@@ -43,4 +43,4 @@ spec:
             claimName: nginx-pvc
         - name: repo-volume
           emptyDir: {}
-  backoffLimit: 2
+  backoffLimit: 5
