@@ -10,7 +10,7 @@ spec:
       restartPolicy: OnFailure
       initContainers:
         - name: git-clone
-          image: alpine/git:2.44.0
+          image: alpine/git:2.49.0
           command: ["/bin/sh", "-c"]
           args:
             - |
