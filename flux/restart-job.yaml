@@ -1,0 +1,18 @@
+# Job para reiniciar el deployment de la API tras actualizar el .jar
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: website-restart-job
+  namespace: website
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: kubectl
+          image: bitnami/kubectl:latest
+          command:
+            - /bin/sh
+            - -c
+            - kubectl -n website rollout restart deployment nginx
+            
