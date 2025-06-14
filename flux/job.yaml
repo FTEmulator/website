@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: website-update-job-42bd0a9
+  name: website-update-job-6032c48
   namespace: website
 spec:
   ttlSecondsAfterFinished: 200
@@ -28,15 +28,12 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              rm -rf /mnt/website_tmp/*
-              mkdir -p /mnt/website_tmp
+              rm -rf /mnt/website/*
               cd /repo
               npm install
               npx next build
-              cp -r out/* /mnt/website_tmp
-              chown -R 101:101 /mnt/website_tmp
-              rm -rf /mnt/website/*
-              mv /mnt/website_tmp/* /mnt/website/
+              cp -r out/* /mnt/website
+              chown -R 101:101 /mnt/website
               kubectl -n website rollout restart deployment nginx
               echo "La pagina se actualizo correctamente"
           volumeMounts:
