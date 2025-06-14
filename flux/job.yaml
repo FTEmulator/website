@@ -28,12 +28,12 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              rm -rf /mnt/website/*
               cd /repo
               npm install
               npx next build
+              rm -rf /mnt/website/*
               cp -r out/* /mnt/website
-              chown -R 101:101 /mnt/website
+              chown -R www-data:www-data /mnt/website
               echo "La pagina se actualizo correctamente"
           volumeMounts:
             - name: website-volume
