@@ -1,0 +1,20 @@
+.general {
+    padding: 0.7rem 1.7rem;
+    margin: 0 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.whiteBlue {
+    border: 3px solid rgba(var(--main-blue), 0.0);
+    background-color: rgba(var(--main-blue), 0.15);
+    color: rgba(var(--main-blue));
+}
+
+.whiteGray {
+    border: 3px solid rgba(var(--main-gray), 0.15);
+    background-color: transparent;
+    color: rgba(var(--main-gray), 0.30);
+}

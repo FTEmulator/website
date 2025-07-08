@@ -22,6 +22,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
   // Opcional: Añade una barra al final de las rutas, útil para servidores como Nginx
   trailingSlash: true,
 };

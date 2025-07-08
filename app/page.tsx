@@ -17,13 +17,13 @@
  * For commercial licensing inquiries, please contact: alexwebdev05@proton.me
  * GitHub: https://github.com/alexwebdev05
  */
-import Image from "next/image";
 import styles from "./page.module.css";
+import Home from "./pages/home/page";
 
-export default function Home() {
+export default function App() {
   return (
     <div className={styles.page}>
-      <h2>FTEmulator</h2>
+      <Home />
     </div>
   );
 }
