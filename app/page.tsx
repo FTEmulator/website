@@ -19,11 +19,34 @@
  */
 import styles from "./page.module.css";
 import Home from "./pages/home/page";
+import TemplateTest from "./components/template/template"
+import FTButton from "./components/button/button";
 
 export default function App() {
-  return (
-    <div className={styles.page}>
-      <Home />
-    </div>
-  );
+    return (
+        <div className={styles.page}>
+            {/* <TemplateTest /> */}
+            {/* Home bar */}
+            <Home />
+
+            {/* Background Blurs */}
+            <div className={styles.blur1} />
+            <div className={styles.blur2} />
+
+            {/* Welcome */}
+            <div className={styles.welcomeContainer}>
+
+                {/* Content */}
+                <div className={styles.content}>
+                    <h2>Fast Trading Emulator</h2>
+                    <p>Mejora tus tecnicas de trading antes de entrar al mercado real y proteje tu dinero.</p>
+                    <div>
+                        <FTButton text="Comencemos" type="whiteBlue" className={styles.welcomeButtons} />
+                        <FTButton text="Despliege en local" type="whiteGray" className={styles.welcomeButtons} />
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    );
 }

@@ -1,3 +1,67 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Welcome */
+.blur1 {
+    position: fixed;
+    top: -5rem;
+    left: -5rem;
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    background-color: rgba(0, 255, 115, 0.2);
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.3);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.blur2 {
+    position: fixed;
+    bottom: -15rem;
+    right: -5rem;
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    background-color: rgba(98, 0, 255, 0.2);
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.3);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.welcomeContainer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 80vw;
+    height: 70vh;
+    margin-top: 6rem;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.content p {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.welcomeButtons {
+    margin: 0 0.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
 
 }

@@ -2,11 +2,11 @@ import style from "./button.module.css";
 
 
 
-export default function FTButton({ text, type }: { text: string, type: string }) {
+export default function FTButton({ text, type, className }: { text: string, type: string, className?: string }) {
     
     if (type == "whiteBlue") {
         return (
-            <button className={`${style.general} ${style.whiteBlue}`}>
+            <button className={`${style.general} ${style.whiteBlue} ${className}`}>
                 {text}
             </button>
         );
@@ -14,7 +14,7 @@ export default function FTButton({ text, type }: { text: string, type: string })
     
     if (type == "whiteGray") {
         return (
-            <button className={`${style.general} ${style.whiteGray}`}>
+            <button className={`${style.general} ${style.whiteGray} ${className}`}>
                 {text}
             </button>
         );
