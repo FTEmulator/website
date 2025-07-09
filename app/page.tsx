@@ -18,7 +18,7 @@
  * GitHub: https://github.com/alexwebdev05
  */
 import styles from "./page.module.css";
-import Home from "./pages/home/page";
+import HomeBar from "./components/homeBar/homeBar";
 import TemplateTest from "./components/template/template"
 import FTButton from "./components/button/button";
 
@@ -27,14 +27,15 @@ export default function App() {
         <div className={styles.page}>
             {/* <TemplateTest /> */}
             {/* Home bar */}
-            <Home />
+            <HomeBar />
 
-            {/* Background Blurs */}
-            <div className={styles.blur1} />
-            <div className={styles.blur2} />
+            
 
             {/* Welcome */}
             <div className={styles.welcomeContainer}>
+                {/* Background Blurs */}
+                <div className={styles.blur1} />
+                <div className={styles.blur2} />
 
                 {/* Content */}
                 <div className={styles.content}>
@@ -47,6 +48,27 @@ export default function App() {
                     
                 </div>
             </div>
+
+            {/* What is FTEmulator */}
+
+            <div className={styles.wifContainer}>
+                <div className={styles.wifText}>
+                    <h2>What is FTEmulator?</h2>
+                    <p>FTEmulator is a stock market investment simulator that uses real market data. We offer a completely realistic experience that allows users to observe market fluctuations and test different investment strategies without risking their real capital.</p>
+                </div>
+                <div className={styles.wfiBennefits}>
+                    <div className={styles.wfiHalf1}>
+                        <div>Real data</div>
+                        <div>Without risk</div>
+                    </div>
+                    <div className={styles.wfiHalf2}>
+                        <div>Strategy</div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     );
 }

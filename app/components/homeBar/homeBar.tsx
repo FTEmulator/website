@@ -1,10 +1,10 @@
-import style from "./page.module.css";
-import FTButton from "../../components/button/button";
+import style from "./homeBar.module.css";
+import FTButton from "../button/button";
 import Image from 'next/image'
 
 import logo from "../../media/logo.png";
 
-export default function Home() {
+export default function HomeBar() {
     return (
         <div className={style.page}>
             <div className={style.shadow}>
