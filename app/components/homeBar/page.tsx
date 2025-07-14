@@ -1,15 +1,15 @@
-import style from "./homeBar.module.css";
-import FTButton from "../button/button";
+import styles from "./page.module.css";
+import FTEButton from "../button/page";
 import Image from 'next/image'
 
 import logo from "../../media/logo.png";
 
 export default function HomeBar() {
     return (
-        <div className={style.page}>
-            <div className={style.shadow}>
-                <div className={style.container}>
-                    <div className={style.logoName}>
+        <div className={styles.page}>
+            <div className={styles.shadow}>
+                <div className={styles.container}>
+                    <div className={styles.logoName}>
                         <Image
                         src={logo}
                         height={70}
@@ -18,14 +18,14 @@ export default function HomeBar() {
                         <h1>FTEmulator</h1>
                     </div>
                     
-                    <div className={style.urls}>
+                    <div className={styles.urls}>
                         <h3><a href="">GitHub</a></h3>
                         <h3><a href="">Doc</a></h3>
                     </div>
                     
                     <div>
-                        <FTButton type="whiteGray" text="Login" className={style.loginRegister} />
-                        <FTButton type="whiteBlue" text="Register" className={style.loginRegister}/>
+                        <FTEButton type="whiteGray" text="Login" className={styles.loginRegister} />
+                        <FTEButton type="whiteBlue" text="Registro" className={styles.loginRegister}/>
                     </div>
                 </div>
                 

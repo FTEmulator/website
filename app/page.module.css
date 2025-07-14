@@ -65,7 +65,6 @@
 /* What is FTEmulator */
 .wifContainer {
     display: flex;
-    width: 100%;
     padding: 8rem 10vw;
     background-color: rgba(0, 26, 255, 0.04);
     box-sizing: border-box;
@@ -74,7 +73,6 @@
 .wifText {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .wifText h2 {
@@ -86,19 +84,19 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    flex: 0.8;
 }
 
 .wfiHalf1 {
     display: flex;
-    padding: 0 5rem;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
 }
 
-.wfiHalf1 div {
+.wfiHalf1Content {
+    display: flex;
+    align-items: center;
     padding: 1rem 1rem;
     margin: 0 3vw;
     min-width: max-content;
@@ -106,6 +104,10 @@
     background-color: rgba(255, 255, 255, 0.7);
     font-weight: 700;
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.2));
+}
+
+.wfiHalf1Content p {
+    margin-right: 1rem;
 }
 
 .wfiHalf2 {
@@ -117,12 +119,26 @@
     box-sizing: border-box;
 }
 
-.wfiHalf2 div {
+.wfiHalf2Content {
+    display: flex;
+    align-items: center;
     padding: 1rem 1rem;
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.7);
     font-weight: 700;
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.2));
+}
+
+.wfiHalf2Content p {
+    margin-right: 1rem;
+}
+
+/* Intuitive and simple */
+.isContainer {
+    display: flex;
+    width: 100%;
+    padding: 8rem 10vw;
+    box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {

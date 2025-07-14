@@ -17,10 +17,22 @@
  * For commercial licensing inquiries, please contact: alexwebdev05@proton.me
  * GitHub: https://github.com/alexwebdev05
  */
+
+// Styles
 import styles from "./page.module.css";
-import HomeBar from "./components/homeBar/homeBar";
-import TemplateTest from "./components/template/template"
-import FTButton from "./components/button/button";
+
+// Components
+import Image from "next/image";
+import HomeBar from "./components/homeBar/page";
+import FTEButton from "./components/button/page";
+import TemplateTest from "./components/template/page"
+
+
+// Images
+import realData from "./media/datosReales.png";
+import withoutRisk from "./media/sinRiesgo.png";
+import strategy from "./media/estrategia.png";
+import FTEFooter from "./components/footer/page";
 
 export default function App() {
     return (
@@ -42,8 +54,8 @@ export default function App() {
                     <h2>Fast Trading Emulator</h2>
                     <p>Mejora tus tecnicas de trading antes de entrar al mercado real y proteje tu dinero.</p>
                     <div>
-                        <FTButton text="Comencemos" type="whiteBlue" className={styles.welcomeButtons} />
-                        <FTButton text="Despliege en local" type="whiteGray" className={styles.welcomeButtons} />
+                        <FTEButton text="Comencemos" type="whiteBlue" className={styles.welcomeButtons} />
+                        <FTEButton text="Despliege en local" type="whiteGray" className={styles.welcomeButtons} />
                     </div>
                     
                 </div>
@@ -53,21 +65,36 @@ export default function App() {
 
             <div className={styles.wifContainer}>
                 <div className={styles.wifText}>
-                    <h2>What is FTEmulator?</h2>
-                    <p>FTEmulator is a stock market investment simulator that uses real market data. We offer a completely realistic experience that allows users to observe market fluctuations and test different investment strategies without risking their real capital.</p>
+                    <h2>¿Que es FTEmulator?</h2>
+                    <p>FTEmulator es un simulador de inversión en bolsa que utiliza datos reales del mercado. Ofrecemos una experiencia completamente realista que permite a los usuarios observar las fluctuaciones del mercado y probar diferentes estrategias de inversión sin arriesgar su capital real.</p>
                 </div>
                 <div className={styles.wfiBennefits}>
                     <div className={styles.wfiHalf1}>
-                        <div>Real data</div>
-                        <div>Without risk</div>
+                        <div className={styles.wfiHalf1Content}>
+                            <p>Datos reales</p>
+                            <Image src={realData} alt="Icono" width={30} height={30} />
+                        </div>
+                        <div className={styles.wfiHalf1Content}>
+                            <p>Sin riesgo</p>
+                            <Image src={withoutRisk} alt="Icono" width={30} height={30} />
+                        </div>
                     </div>
                     <div className={styles.wfiHalf2}>
-                        <div>Strategy</div>
+                        <div className={styles.wfiHalf2Content}>
+                            <p>Estrategia</p>
+                            <Image src={strategy} alt="Icono" width={30} height={30} />
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {/* Intuitive and simple */}
+            <div className={styles.isContainer}>
+                En desarrollo (tengo diferentes ideas)
+            </div>
 
+            {/* Footer */}
+            <FTEFooter />
 
         </div>
     );
