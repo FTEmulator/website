@@ -24,8 +24,8 @@ export default function HomeBar() {
                     </div>
                     
                     <div>
-                        <FTEButton type="whiteGray" text="Login" className={styles.loginRegister} />
-                        <FTEButton type="whiteBlue" text="Registro" className={styles.loginRegister}/>
+                        <FTEButton type="gray" text="Login" className={styles.loginRegister} />
+                        <FTEButton type="blue" text="Registro" className={styles.loginRegister}/>
                     </div>
                 </div>
                 

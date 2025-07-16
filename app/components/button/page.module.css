@@ -7,14 +7,28 @@
     cursor: pointer;
 }
 
-.whiteBlue {
+.blue {
     border: 3px solid rgba(var(--main-blue), 0.0);
     background-color: rgba(var(--main-blue), 0.15);
     color: rgba(var(--main-blue));
 }
 
-.whiteGray {
+@media (prefers-color-scheme: dark) {
+    .blue {
+        background-color: rgba(var(--main-blue), 0.20);
+    }
+}
+
+.gray {
     border: 3px solid rgba(var(--main-gray), 0.15);
     background-color: transparent;
     color: rgba(var(--main-gray), 0.30);
+}
+
+@media (prefers-color-scheme: dark) {
+    .gray {
+        border: 3px solid rgba(var(--foreground), 0.5);
+        background-color: transparent;
+        color: rgba(var(--foreground), 0.70);
+    }
 }
