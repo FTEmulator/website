@@ -3,13 +3,19 @@
 import styles from "./page.module.css";
 import FTEButton from "../button/page";
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 import logo from "../../media/logo.png";
 
 export default function HomeBar() {
+    const router = useRouter();
 
-    function handleAlert() {
-        alert("¡Botón presionado!");
+    function handleLogin() {
+        router.push('/auth/login')
+    }
+
+    function handleRegister() {
+        router.push('/auth/register')
     }
 
     return (
@@ -31,8 +37,8 @@ export default function HomeBar() {
                     </div>
                     
                     <div>
-                        <FTEButton type="gray" text="Login" className={styles.loginRegister} action={handleAlert}/>
-                        <FTEButton type="blue" text="Registro" className={styles.loginRegister} action={handleAlert}/>
+                        <FTEButton type="gray" text="Login" className={styles.loginRegister} action={handleLogin}/>
+                        <FTEButton type="blue" text="Registro" className={styles.loginRegister} action={handleRegister}/>
                     </div>
                 </div>
                 

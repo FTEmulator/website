@@ -9,20 +9,44 @@
 
 .blue {
     border: 3px solid rgba(var(--main-blue), 0.0);
-    background-color: rgba(var(--main-blue), 0.15);
+    background-color: rgba(var(--main-blue), 0.20);
+    transition-duration: 300ms;
     color: rgba(var(--main-blue));
+}
+
+.blue:hover {
+    color: white;
+    background-color: rgba(var(--main-blue));
+    filter:
+            drop-shadow(0 0 4px rgba(var(--main-blue), 0.5))
+            drop-shadow(0 0 30px rgba(var(--main-blue), 0.5));
 }
 
 @media (prefers-color-scheme: dark) {
     .blue {
-        background-color: rgba(var(--main-blue), 0.20);
+        background-color: rgba(var(--main-blue), 0.2);
+    }
+
+    .blue:hover {
+        color: white;
+        background-color: rgba(var(--main-blue), 0.8);
+        filter:
+            drop-shadow(0 0 4px rgba(255, 255, 255, 0.3))
+            drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
     }
 }
 
 .gray {
     border: 3px solid rgba(var(--main-gray), 0.15);
     background-color: transparent;
+    transition-duration: 300ms;
     color: rgba(var(--main-gray), 0.30);
+}
+
+.gray:hover {
+    border: 3px solid transparent;
+    color: white;
+    background-color: rgba(var(--main-gray), 0.20);
 }
 
 @media (prefers-color-scheme: dark) {
