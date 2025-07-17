@@ -1,3 +1,5 @@
+'use client';
+
 import styles from "./page.module.css";
 import FTEButton from "../button/page";
 import Image from 'next/image'
@@ -5,6 +7,11 @@ import Image from 'next/image'
 import logo from "../../media/logo.png";
 
 export default function HomeBar() {
+
+    function handleAlert() {
+        alert("¡Botón presionado!");
+    }
+
     return (
         <div className={styles.page}>
             <div className={styles.shadow}>
@@ -24,8 +31,8 @@ export default function HomeBar() {
                     </div>
                     
                     <div>
-                        <FTEButton type="gray" text="Login" className={styles.loginRegister} />
-                        <FTEButton type="blue" text="Registro" className={styles.loginRegister}/>
+                        <FTEButton type="gray" text="Login" className={styles.loginRegister} action={handleAlert}/>
+                        <FTEButton type="blue" text="Registro" className={styles.loginRegister} action={handleAlert}/>
                     </div>
                 </div>
                 
