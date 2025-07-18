@@ -148,7 +148,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
+    .wfiHalf1Content, .wfiHalf2Content {
+        background-color: rgb(var(--background));
+        filter: drop-shadow(0px 0px 10px rgba(var(--foreground), 0.4));
+    }
 }
 
 /* Enable hover only on non-touch devices */

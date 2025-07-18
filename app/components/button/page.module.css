@@ -1,6 +1,5 @@
 .general {
     padding: 0.7rem 1.7rem;
-
     border-radius: 1rem;
     font-weight: 600;
     font-size: medium;
@@ -37,16 +36,16 @@
 }
 
 .gray {
-    border: 3px solid rgba(var(--main-gray), 0.15);
+    border: 3px solid rgba(var(--main-gray));
     background-color: transparent;
     transition-duration: 300ms;
-    color: rgba(var(--main-gray), 0.30);
+    color: rgba(var(--main-gray));
 }
 
 .gray:hover {
     border: 3px solid transparent;
     color: white;
-    background-color: rgba(var(--main-gray), 0.20);
+    background-color: rgba(var(--main-gray));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,5 +53,11 @@
         border: 3px solid rgba(var(--foreground), 0.5);
         background-color: transparent;
         color: rgba(var(--foreground), 0.70);
+    }
+
+    .gray:hover {
+        border: 3px solid transparent;
+        color: white;
+        background-color: rgba(var(--main-gray), 0.6);
     }
 }
