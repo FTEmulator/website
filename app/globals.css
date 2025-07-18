@@ -1,12 +1,21 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 255, 255, 255;
+  --foreground: 0, 0, 0;
+  --main-blue: 32, 178, 170;
+  --main-gray: 200, 200, 200;
+  --main-text-color: 0, 0, 0;
+  --menu-shadow: 80, 70, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0, 0, 0;
+    --foreground: 255, 255, 255;
+    --menu-shadow: 255, 255, 255;
+  }
+
+  * {
+    color: white;
   }
 }
 
@@ -17,8 +26,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--main-text-color), 0.8);
+  background: rgba(var(--background));
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,8 +44,12 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.link {
+  color: rgb(var(--main-blue));
+  font-size: small;
+  transition-duration: 300ms;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

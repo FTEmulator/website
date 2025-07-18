@@ -1,0 +1,131 @@
+/*
+ * FTEmulator - FTEmulator is a high-performance stock market investment simulator designed with extreme technical efficiency
+ * 
+ * Copyright (C) 2025-2025 Álex Frías (alexwebdev05)
+ * Licensed under GNU Affero General Public License v3.0
+ * 
+ * For commercial licensing inquiries, please contact: alexwebdev05@proton.me
+ * GitHub: https://github.com/alexwebdev05
+ */
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.blur1 {
+    position: absolute;
+    top: -5rem;
+    left: 0rem;
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    background-color: rgba(0, 255, 115, 0.5);
+    box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.blur2 {
+    position: absolute;
+    bottom: -10rem;
+    right: -5rem;
+    border-radius: 50%;
+    width: 35vw;
+    height: 35vw;
+    background-color: rgba(153, 0, 255, 0.4);
+    box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.mainPageButton {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+}
+
+/* Form */
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 30vw;
+    border-radius: 2rem;
+    background-color: white;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+}
+
+.logo {
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.formContainer p {
+    font-size:smaller;
+    font-weight: 700;
+    margin: 1rem 0 2rem 0;
+}
+
+.form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form a {
+    margin-left: auto;
+}
+
+.label {
+    width: 100%;
+    font-size: small;
+}
+
+.input {
+    width: 100%;
+    display: block;
+    padding: 0.8rem 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    border-radius: 0.7rem;
+    border: 2px solid rgb(var(--main-gray));
+    outline: none;
+    transition-duration: 300ms;
+}
+
+.input:focus {
+    border: 2px solid rgb(var(--main-blue));
+}
+
+.submite {
+    margin: 1rem 0 2rem auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    .formContainer {
+        background-color: rgba(var(--background), 0.2);
+        box-shadow: 0 0 30px 10px rgba(var(--foreground), 0.15);
+    }
+
+    .input {
+        background-color: rgba(var(--background));
+        border: 2px solid rgba(var(--foreground), 0.5);
+    }
+
+    .input:focus {
+        border: 2px solid rgba(var(--main-blue), 0.8);
+    }
+
+    .submite {
+        background-color: rgba(var(--main-blue), 0.6);
+    }
+}

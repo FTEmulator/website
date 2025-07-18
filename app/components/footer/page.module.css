@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 3.5rem;
+    font-weight: 700;
+    color: rgb(var(--main-blue));
+    background-color: rgb(var(--main-blue), 0.25);
+}
