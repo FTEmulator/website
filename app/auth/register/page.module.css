@@ -20,11 +20,11 @@
 
 .blur1 {
     position: absolute;
-    top: -5rem;
-    left: 0rem;
+    top: -15rem;
+    left: -10rem;
     border-radius: 50%;
-    width: 30vw;
-    height: 30vw;
+    width: 50vw;
+    height: 50vw;
     background-color: rgba(0, 255, 115, 0.5);
     box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
     filter: blur(100px);
@@ -33,11 +33,11 @@
 
 .blur2 {
     position: absolute;
-    bottom: -10rem;
-    right: -5rem;
+    bottom: -20rem;
+    right: -10rem;
     border-radius: 50%;
-    width: 35vw;
-    height: 35vw;
+    width: 60vw;
+    height: 60vw;
     background-color: rgba(153, 0, 255, 0.4);
     box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
     filter: blur(100px);
@@ -58,8 +58,20 @@
     position: relative;
     width: 30vw;
     border-radius: 2rem;
-    background-color: rgba(var(--background));
-    filter: drop-shadow(0 0 10px rgba(var(--foreground), 0.2));
+    z-index: 1;
+}
+
+.formContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    background-color: rgba(var(--background), 0.2);
+    box-shadow: 0 0 20px rgba(var(--foreground), 0.2);
+    z-index: -1;
 }
 
 .logo {
@@ -97,7 +109,7 @@
     margin-top: 0.2rem;
     margin-bottom: 1rem;
     border-radius: 0.7rem;
-    border: 2px solid rgb(var(--main-gray));
+    border: 2px solid rgba(var(--main-gray), 0.4);
     outline: none;
     transition-duration: 300ms;
 }
@@ -111,14 +123,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .formContainer {
-        background-color: rgba(var(--background), 0.2);
-        box-shadow: 0 0 30px 10px rgba(var(--foreground), 0.15);
-    }
-
     .input {
         background-color: rgba(var(--background));
-        border: 2px solid rgba(var(--foreground), 0.5);
     }
 
     .input:focus {
