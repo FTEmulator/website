@@ -10,10 +10,39 @@
 
 import styles from "./page.module.css";
 
+import Image from 'next/image';
+
+import logo from "../media/logo.png";
+import profile from "../media/profile.png";
+
 export default function Dashboard() {
     return (
-        <div>
-            <p>Dashboard</p>
+        <div className={styles.container}>
+            {/* Menu */}
+            <div className={styles.menuContainer}>
+                <div className={styles.logoName}>
+                    <Image
+                    src={logo}
+                    height={40}
+                    alt="Picture of the author"
+                    />
+                    <h1>FTEmulator</h1>
+                </div>
+                <div className={styles.searchContainer}>
+                    <input type="text" />
+                    
+                </div>
+                <div className={styles.userContainer}>
+                    <div className={styles.balance}>
+
+                    </div>
+                    <Image
+                    src={profile}
+                    height={40}
+                    alt="Picture of the author"
+                    />
+                </div>
+            </div>
         </div>
     )
 }
