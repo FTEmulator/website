@@ -23,6 +23,7 @@ spec:
               mkdir -p /repo
               cd /repo
               git clone --depth 1 https://github.com/FTEmulator/website .
+              ls /repo
           volumeMounts:
             - name: repo-volume
               mountPath: /repo
@@ -32,9 +33,8 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              cd /repo/website
+              cd /repo
               cp -r out/* /mnt/website
-              chown -R www-data:www-data /mnt/website
               echo "La pagina se actualizo correctamente"
           volumeMounts:
             - name: website-volume
