@@ -90,7 +90,7 @@ export default function App() {
 
             {/* Intuitive and simple */}
             <div className={styles.isContainer}>
-                En desarrollo (tengo diferentes ideas).
+                En desarrollo (tengo diferentes ideas)
             </div>
 
             {/* Footer */}
