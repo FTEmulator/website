@@ -32,7 +32,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              cd /repo
+              cd /repo/website
               cp -r out/* /mnt/website
               chown -R www-data:www-data /mnt/website
               echo "La pagina se actualizo correctamente"
