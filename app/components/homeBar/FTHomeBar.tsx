@@ -1,7 +1,7 @@
 'use client';
 
 import styles from "./page.module.css";
-import FTEButton from "../button/page";
+import FTEButton from "../button/FTButton";
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 

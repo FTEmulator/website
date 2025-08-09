@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation'
 // Components
 import Form from 'next/form'
 import Image from 'next/image'
-import FTEButton from '@/app/components/button/page'
+import FTEButton from '@/app/components/button/FTButton'
 
 // Icons
 import logo from '../../media/logo.png';

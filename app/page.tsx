@@ -23,8 +23,8 @@ import styles from "./page.module.css";
 
 // Components
 import Image from "next/image";
-import HomeBar from "./components/homeBar/page";
-import FTEButton from "./components/button/page";
+import HomeBar from "./components/homeBar/FTHomeBar";
+import FTEButton from "./components/button/FTButton";
 import TemplateTest from "./components/template/page"
 
 
@@ -32,7 +32,7 @@ import TemplateTest from "./components/template/page"
 import realData from "./media/datosReales.png";
 import withoutRisk from "./media/sinRiesgo.png";
 import strategy from "./media/estrategia.png";
-import FTEFooter from "./components/footer/page";
+import FTEFooter from "./components/footer/FTFooter";
 
 export default function App() {
     return (
