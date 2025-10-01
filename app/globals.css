@@ -53,3 +53,13 @@ a {
 .link:hover {
   text-decoration: underline;
 }
+
+.errors {
+  color: rgb(255, 255, 255);
+  background-color: rgba(var(--main-blue), 0.178);
+  padding: 0.3rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+  border-left: 3px solid rgb(var(--main-blue));
+  width: 100%;
+}

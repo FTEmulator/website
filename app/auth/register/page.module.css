@@ -20,27 +20,27 @@
 
 .blur1 {
     position: absolute;
-    top: -15rem;
-    left: -10rem;
+    top: -20rem;
+    left: 0rem;
     border-radius: 50%;
-    width: 50vw;
-    height: 50vw;
+    width: 60vw;
+    height: 45rem;
     background-color: rgba(0, 255, 115, 0.5);
     box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
-    filter: blur(100px);
+    filter: blur(200px);
     z-index: 0;
 }
 
 .blur2 {
     position: absolute;
-    bottom: -20rem;
-    right: -10rem;
+    bottom: -10rem;
+    right: 0rem;
     border-radius: 50%;
-    width: 60vw;
-    height: 60vw;
+    width: 70vw;
+    height: 45rem;
     background-color: rgba(153, 0, 255, 0.4);
     box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
-    filter: blur(100px);
+    filter: blur(200px);
     z-index: 0;
 }
 
@@ -56,10 +56,12 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 30vw;
+    max-width: 30rem;
+    width: 80vw;
     border-radius: 2rem;
     z-index: 1;
 }
+
 
 .formContainer::after {
     content: '';
@@ -82,14 +84,15 @@
 .formContainer p {
     font-size:smaller;
     font-weight: 700;
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 2rem 2rem 2rem;
+    text-align: center;
 }
 
 .form {
     width: 80%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     justify-content: center;
 }
 
@@ -109,7 +112,7 @@
     margin-top: 0.2rem;
     margin-bottom: 1rem;
     border-radius: 0.7rem;
-    border: 2px solid rgba(var(--main-gray), 0.4);
+    border: 2px solid rgb(var(--main-gray), 0.4);
     outline: none;
     transition-duration: 300ms;
 }
@@ -121,6 +124,7 @@
 .submite {
     margin: 1rem 0 2rem auto;
 }
+
 
 @media (prefers-color-scheme: dark) {
     .input {

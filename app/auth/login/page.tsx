@@ -11,7 +11,9 @@
 'use client'
 
 import styles from './page.module.css'
+import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
+import { Formik } from 'formik';
 
 // Components
 import Form from 'next/form'
@@ -24,7 +26,7 @@ import logo from '../../media/logo.png';
 export default function Login() {
     const router = useRouter();
     
-    function handleBackToHome() {
+    const  handleBackToHome = () => {
         router.push('/')
     }
 
@@ -54,13 +56,65 @@ export default function Login() {
                 <p>Entra en tu cuenta para empezar a practicar</p>
 
                 {/* form */}
-                <Form className={styles.form} action="/api/auth/register">
-                    <label htmlFor="email" className={styles.label}>Email<input type="email" name='email' placeholder='Email' className={styles.input} /></label>
-                    <label htmlFor="password" className={styles.label}>Contraseña<input type="password" name='password' placeholder='Password' className={styles.input} /></label>
-                    {/* Register link */}
-                <a href="/auth/register" className='link'>¿No tienes una cuenta? Regístrate</a>
-                    <FTEButton text="Iniciar sesión" type="blue" className={styles.submite} />
-                </Form>
+                
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    validationSchema={Yup.object({
+                        email: Yup.string()
+                            .email('El email no es válido')
+                            .required('El email es obligatorio'),
+                        password: Yup.string()
+                            .min(6, 'La contraseña debe tener al menos 6 caracteres')
+                            .required('La contraseña es obligatoria'),
+                    })}
+                    onSubmit={(values, { setSubmitting }) => {
+                        setTimeout(() => {
+                            alert(JSON.stringify(values, null, 2));
+                            setSubmitting(false);
+                        }, 400);
+                    }}
+                >
+                    {({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+
+                    }) => (
+                        <form className={styles.form} onSubmit={handleSubmit}>
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.email}
+                                className={styles.input}
+                                placeholder='Email'
+                            />
+                            {errors.email && touched.email && (
+                                <div className='errors'>{errors.email}</div>
+                            )}
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.password}
+                                className={styles.input}
+                                placeholder='Contraseña'
+                            />
+                            {errors.password && touched.password && (
+                                <div className='errors'>{errors.password}</div>
+                            )}
+                            <a href="/auth/register" className='link'>¿No tienes una cuenta? Regístrate</a>
+                            <FTEButton text={isSubmitting ? "Enviando..." : "Iniciar sesión"} type="blue" className={styles.submite} />
+                        </form>
+                    )}
+                </Formik>
+
             </div>
             
         </div>

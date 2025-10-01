@@ -7,27 +7,27 @@
 /* Welcome */
 .blur1 {
     position: absolute;
-    top: -5rem;
+    top: -15rem;
     left: -10rem;
     border-radius: 50%;
-    width: 30vw;
-    height: 30vw;
-    background-color: rgba(0, 255, 115, 0.2);
-    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.3);
-    filter: blur(100px);
+    width: 60vw;
+    height: 40rem;
+    background-color: rgba(0, 255, 115, 0.5);
+    box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
+    filter: blur(200px);
     z-index: 0;
 }
 
 .blur2 {
     position: absolute;
-    bottom: -10rem;
-    right: -20rem;
+    bottom: -0rem;
+    right: -10rem;
     border-radius: 50%;
-    width: 35vw;
-    height: 35vw;
-    background-color: rgba(153, 0, 255, 0.2);
-    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.3);
-    filter: blur(100px);
+    width: 60vw;
+    height: 40rem;
+    background-color: rgba(153, 0, 255, 0.4);
+    box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.3);
+    filter: blur(200px);
     z-index: 0;
 }
 
@@ -36,7 +36,7 @@
     position: relative;
     justify-content: center;
     width: 80vw;
-    height: 70vh;
+    height: 100vh;
     margin-top: 6rem;
 
 }
@@ -46,6 +46,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -10rem;
+    z-index: 2;
 }
 
 .content h2 {
