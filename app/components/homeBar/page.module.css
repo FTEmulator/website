@@ -45,4 +45,5 @@
 
 .loginRegister {
     margin-left: 1rem;
+    z-index: 2;
 }

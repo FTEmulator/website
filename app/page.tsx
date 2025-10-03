@@ -54,8 +54,8 @@ export default function App() {
                     <h2>Fast Trading Emulator</h2>
                     <p>Mejora tus tecnicas de trading antes de entrar al mercado real y proteje tu dinero.</p>
                     <div>
-                        <FTEButton text="Comencemos" type="blue" className={styles.welcomeButtons} />
-                        <FTEButton text="Despliege en local" type="gray" className={styles.welcomeButtons} />
+                        <FTEButton text="Comencemos" variant="blue" className={styles.welcomeButtons} />
+                        <FTEButton text="Despliege en local" variant="gray" className={styles.welcomeButtons} />
                     </div>
                     
                 </div>

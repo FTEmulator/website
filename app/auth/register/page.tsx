@@ -13,6 +13,7 @@
 import styles from './page.module.css'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 // Components
 import Form from 'next/form'
@@ -22,12 +23,53 @@ import FTEButton from '@/app/components/button/FTButton'
 
 // Icons
 import logo from '../../media/logo.png';
+import { count } from 'console'
+
+// Api
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST
+const API_PORT = process.env.NEXT_PUBLIC_API_PORT
+const API_URL = `http://${API_HOST}:${API_PORT}`
+
+import { useState } from 'react';
 
 export default function Register() {
     const router = useRouter();
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     function handleBackToHome() {
         router.push('/')
+    }
+
+    const handleRegister = async (
+        values: { name: string, email: string; password: string, country: string },
+        { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+    ) => {
+        console.log('Logging in with values:', values)
+        axios({
+            method: 'post',
+            url: `${API_URL}/api/profile/register`,
+            data: {
+                name: values.email,
+                email: values.email,
+                password: values.password,
+                country: values.country
+            }
+        })
+        .then(response => {
+            console.log('Login successful:', response.data)
+            //router.push('/dashboard')
+        })
+        .catch(error => {
+            console.error('Login error:', error)
+            if (error.response && error.response.data && error.response.data.message) {
+                setErrorMessage(error.response.data.message)
+            } else {
+                setErrorMessage('Error de conexión. Por favor, inténtalo de nuevo más tarde.')
+            }
+        })
+        .finally(() => {
+            setSubmitting(false)
+        })
     }
 
     return (
@@ -39,7 +81,7 @@ export default function Register() {
 
             {/* Main page button */}
             <div className={styles.mainPageButton}>
-                <FTEButton text="Volver al inicio" type="blue" action={handleBackToHome} />
+                <FTEButton text="Volver al inicio" variant="blue" action={handleBackToHome} />
             </div>
 
             {/* Register Form */}
@@ -52,12 +94,9 @@ export default function Register() {
                     alt="Picture of the author"
                     className={styles.logo}
                 />
-                <h2>Registro</h2>
-                <p>Crea tu cuenta para empezar a practicar</p>
-
                 {/* form */}
                 <Formik
-                    initialValues={{ username: '', email: '', password: '', passwordConfirmation: '' }}
+                    initialValues={{ name: '', username: '', email: '', password: '', passwordConfirmation: '', country: '' }}
                     validationSchema={Yup.object({
                         username: Yup.string()
                             .required('El nombre de usuario es obligatorio'),
@@ -69,12 +108,7 @@ export default function Register() {
                         passwordConfirmation: Yup.string()
                             .oneOf([Yup.ref('password'), ''], 'Las contraseñas tienen que coincidir')
                     })}
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+                    onSubmit={handleRegister}
                 >
                     {({
                         values,
@@ -111,6 +145,18 @@ export default function Register() {
                                 <div className='errors'>{errors.email}</div>
                             )}
                             <input
+                                type="country"
+                                name="country"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.country}
+                                className={styles.input}
+                                placeholder='País'
+                            />
+                            {errors.country && touched.country && (
+                                <div className='errors'>{errors.country}</div>
+                            )}
+                            <input
                                 type="password"
                                 name="password"
                                 onChange={handleChange}
@@ -135,7 +181,10 @@ export default function Register() {
                                 <div className='errors'>{errors.passwordConfirmation}</div>
                             )}
                             <a href="/auth/login" className='link'>¿Ya tienes una cuenta? Inicia sesión</a>
-                            <FTEButton text={isSubmitting ? "Enviando..." : "Registrarse"} type="blue" className={styles.submite} />
+                            <FTEButton text={isSubmitting ? "Enviando..." : "Registrarse"} type='submit' variant="blue" className={styles.submite} />
+                            {errorMessage && (
+                                <div className='errors'>{errorMessage}</div>
+                            )}
                         </form>
                     )}
                     

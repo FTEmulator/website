@@ -1,33 +1,60 @@
-/*
- * FTEmulator - FTEmulator is a high-performance stock market investment simulator designed with extreme technical efficiency
- * 
- * Copyright (C) 2025-2025 Álex Frías (alexwebdev05)
- * Licensed under GNU Affero General Public License v3.0
- * 
- * For commercial licensing inquiries, please contact: alexwebdev05@proton.me
- * GitHub: https://github.com/alexwebdev05
- */
-
 'use client'
 
 import styles from './page.module.css'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
-import { Formik } from 'formik';
+import { Formik } from 'formik'
+import { useState } from 'react'
+import axios from 'axios'
 
 // Components
-import Form from 'next/form'
 import Image from 'next/image'
 import FTEButton from '@/app/components/button/FTButton'
 
 // Icons
-import logo from '../../media/logo.png';
+import logo from '../../media/logo.png'
+
+// Api
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST
+const API_PORT = process.env.NEXT_PUBLIC_API_PORT
+const API_URL = `http://${API_HOST}:${API_PORT}`
 
 export default function Login() {
-    const router = useRouter();
+    const router = useRouter()
+    const [errorMessage, setErrorMessage] = useState('')
     
-    const  handleBackToHome = () => {
+    const handleBackToHome = () => {
         router.push('/')
+    }
+
+    const handleLogin = async (
+        values: { email: string; password: string },
+        { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+    ) => {
+        console.log('Logging in with values:', values)
+        axios({
+            method: 'post',
+            url: `${API_URL}/api/profile/login`,
+            data: {
+                email: values.email,
+                password: values.password
+            }
+        })
+        .then(response => {
+            console.log('Login successful:', response.data)
+            //router.push('/dashboard')
+        })
+        .catch(error => {
+            console.error('Login error:', error)
+            if (error.response && error.response.data && error.response.data.message) {
+                setErrorMessage(error.response.data.message)
+            } else {
+                setErrorMessage('Error de conexión. Por favor, inténtalo de nuevo más tarde.')
+            }
+        })
+        .finally(() => {
+            setSubmitting(false)
+        })
     }
 
     return (
@@ -39,24 +66,23 @@ export default function Login() {
 
             {/* Main page button */}
             <div className={styles.mainPageButton}>
-                <FTEButton text="Volver al inicio" type="blue" action={handleBackToHome} />
+                <FTEButton text="Volver al inicio" variant="blue" action={handleBackToHome} />
             </div>
 
-            {/* Register Form */}
+            {/* Login Form */}
             <div className={styles.formContainer}>
 
                 {/* Name and logo */}
                 <Image
                     src={logo}
                     height={100}
-                    alt="Picture of the author"
+                    alt="FTEmulator Logo"
                     className={styles.logo}
                 />
                 <h2>Login</h2>
                 <p>Entra en tu cuenta para empezar a practicar</p>
 
                 {/* form */}
-                
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={Yup.object({
@@ -67,12 +93,7 @@ export default function Login() {
                             .min(6, 'La contraseña debe tener al menos 6 caracteres')
                             .required('La contraseña es obligatoria'),
                     })}
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+                    onSubmit={handleLogin}
                 >
                     {({
                         values,
@@ -82,7 +103,6 @@ export default function Login() {
                         handleBlur,
                         handleSubmit,
                         isSubmitting,
-
                     }) => (
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <input
@@ -93,6 +113,7 @@ export default function Login() {
                                 value={values.email}
                                 className={styles.input}
                                 placeholder='Email'
+                                disabled={isSubmitting}
                             />
                             {errors.email && touched.email && (
                                 <div className='errors'>{errors.email}</div>
@@ -105,12 +126,16 @@ export default function Login() {
                                 value={values.password}
                                 className={styles.input}
                                 placeholder='Contraseña'
+                                disabled={isSubmitting}
                             />
                             {errors.password && touched.password && (
                                 <div className='errors'>{errors.password}</div>
                             )}
                             <a href="/auth/register" className='link'>¿No tienes una cuenta? Regístrate</a>
-                            <FTEButton text={isSubmitting ? "Enviando..." : "Iniciar sesión"} type="blue" className={styles.submite} />
+                            <FTEButton text={isSubmitting ? "Enviando..." : "Inicia sesión"} type='submit' variant="blue" className={styles.submite} />
+                            {errorMessage && (
+                                <div className='errors'>{errorMessage}</div>
+                            )}
                         </form>
                     )}
                 </Formik>

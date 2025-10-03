@@ -1,8 +1,28 @@
 import styles from "./page.module.css";
 
-export default function FTEButton({ text, type, className, action }: { text: string, type: string, className?: string, action?: () => void }) {
+type FTEButtonProps = {
+    text: string;
+    variant?: string; // para el color/estilo
+    type?: "button" | "submit" | "reset";
+    className?: string;
+    action?: () => void;
+};
+
+export default function FTEButton({
+    text,
+    variant = "blue",
+    type = "button",
+    className = "",
+    action,
+    ...props
+}: FTEButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={`${styles.general} ${styles[type]} ${className}`} onClick={action}>
+        <button
+            type={type}
+            className={`${styles.general} ${styles[variant] || ""} ${className}`.trim()}
+            onClick={action}
+            {...props}
+        >
             {text}
         </button>
     );

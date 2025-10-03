@@ -37,8 +37,8 @@ export default function HomeBar() {
                     </div>
                     
                     <div>
-                        <FTEButton type="gray" text="Login" className={styles.loginRegister} action={handleLogin}/>
-                        <FTEButton type="blue" text="Registro" className={styles.loginRegister} action={handleRegister}/>
+                        <FTEButton variant="gray" text="Login" className={styles.loginRegister} action={handleLogin}/>
+                        <FTEButton variant="blue" text="Registro" className={styles.loginRegister} action={handleRegister}/>
                     </div>
                 </div>
                 
