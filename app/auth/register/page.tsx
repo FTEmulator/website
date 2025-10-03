@@ -41,15 +41,15 @@ export default function Register() {
     }
 
     const handleRegister = async (
-        values: { name: string, email: string; password: string, country: string },
+        values: { username: string, email: string; password: string, passwordConfirmation: string, country: string },
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
     ) => {
-        console.log('Logging in with values:', values)
+        console.log('Registering with values:', values)
         axios({
             method: 'post',
             url: `${API_URL}/api/profile/register`,
             data: {
-                name: values.email,
+                username: values.username,
                 email: values.email,
                 password: values.password,
                 country: values.country
