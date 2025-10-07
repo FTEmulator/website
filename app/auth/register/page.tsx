@@ -41,15 +41,18 @@ export default function Register() {
     }
 
     const handleRegister = async (
-        values: { username: string, email: string; password: string, passwordConfirmation: string, country: string },
+        values: { name: string, email: string; password: string, passwordConfirmation: string, country: string },
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
     ) => {
         console.log('Registering with values:', values)
         axios({
             method: 'post',
             url: `${API_URL}/api/profile/register`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
             data: {
-                username: values.username,
+                name: values.name,
                 email: values.email,
                 password: values.password,
                 country: values.country
@@ -96,17 +99,19 @@ export default function Register() {
                 />
                 {/* form */}
                 <Formik
-                    initialValues={{ name: '', username: '', email: '', password: '', passwordConfirmation: '', country: '' }}
+                    initialValues={{ name: '', email: '', password: '', passwordConfirmation: '', country: '' }}
                     validationSchema={Yup.object({
-                        username: Yup.string()
-                            .required('El nombre de usuario es obligatorio'),
+                        name: Yup.string()
+                            .required('El nombre es obligatorio'),
                         email: Yup.string()
                             .email('El email no es válido')
                             .required('El email no es válido'),
                         password: Yup.string()
                             .required('La contraseña es obligatoria'),
                         passwordConfirmation: Yup.string()
-                            .oneOf([Yup.ref('password'), ''], 'Las contraseñas tienen que coincidir')
+                            .oneOf([Yup.ref('password'), ''], 'Las contraseñas tienen que coincidir'),
+                        country: Yup.string()
+                            .required('El país es obligatorio')
                     })}
                     onSubmit={handleRegister}
                 >
@@ -122,15 +127,15 @@ export default function Register() {
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <input
                                 type="text"
-                                name="username"
+                                name="name"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.username}
+                                value={values.name}
                                 className={styles.input}
                                 placeholder='Nombre de usuario'
                             />
-                            {errors.username && touched.username && (
-                                <div className='errors'>{errors.username}</div>
+                            {errors.name && touched.name && (
+                                <div className='errors'>{errors.name}</div>
                             )}
                             <input
                                 type="email"
@@ -145,7 +150,7 @@ export default function Register() {
                                 <div className='errors'>{errors.email}</div>
                             )}
                             <input
-                                type="country"
+                                type="text"
                                 name="country"
                                 onChange={handleChange}
                                 onBlur={handleBlur}

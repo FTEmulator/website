@@ -35,6 +35,9 @@ export default function Login() {
         axios({
             method: 'post',
             url: `${API_URL}/api/profile/login`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
             data: {
                 email: values.email,
                 password: values.password
