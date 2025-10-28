@@ -26,9 +26,7 @@ import logo from '../../media/logo.png';
 import { count } from 'console'
 
 // Api
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST
-const API_PORT = process.env.NEXT_PUBLIC_API_PORT
-const API_URL = `http://${API_HOST}:${API_PORT}`
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 import { useState } from 'react';
 

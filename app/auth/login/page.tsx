@@ -15,9 +15,7 @@ import FTEButton from '@/app/components/button/FTButton'
 import logo from '../../media/logo.png'
 
 // Api
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST
-const API_PORT = process.env.NEXT_PUBLIC_API_PORT
-const API_URL = `http://${API_HOST}:${API_PORT}`
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function Login() {
     const router = useRouter()
